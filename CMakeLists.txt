@@ -4,9 +4,7 @@ project(ed_msgs)
 find_package(catkin REQUIRED COMPONENTS
   message_generation
   tue_serialization
-  #std_msgs
   geometry_msgs
-  #std_srvs
 )
 
 # Generate messages in the 'msg' folder
@@ -39,10 +37,9 @@ add_service_files(
 generate_messages(
   DEPENDENCIES
     tue_serialization
-    #std_msgs
     geometry_msgs
 )
 
 catkin_package(
-  CATKIN_DEPENDS tue_serialization geometry_msgs #std_msgs
+  CATKIN_DEPENDS tue_serialization geometry_msgs
 )
