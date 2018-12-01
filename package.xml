@@ -4,7 +4,7 @@
   <version>0.0.0</version>
   <description>The ed_msgs package</description>
 
-  <maintainer email="reinzor@gmail.com">Rein Appeldoorn</maintainer>
+  <maintainer email="amigo@tue.nl">Matthijs van der Burgh</maintainer>
 
   <license>TODO</license>
 
@@ -12,22 +12,14 @@
 
   <build_depend>message_generation</build_depend>
   <build_depend>tue_serialization</build_depend>
-<!--
-  <build_depend>std_msgs</build_depend>
--->
   <build_depend>geometry_msgs</build_depend>
-<!--
-  <build_depend>std_srvs</build_depend>
--->
+  <build_depend>shape_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
 
   <run_depend>message_runtime</run_depend>
   <run_depend>tue_serialization</run_depend>
-<!--
-  <run_depend>std_msgs</run_depend>
--->
   <run_depend>geometry_msgs</run_depend>
-<!--
-  <run_depend>std_srvs</run_depend>
--->
+  <run_depend>shape_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
 
 </package>
