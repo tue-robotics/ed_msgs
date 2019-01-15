@@ -10,7 +10,7 @@ time creation_time
 bool has_shape
 
 bool has_pose
-geometry_msgs/PoseStamped pose
+geometry_msgs/Pose pose
 
 # Custom data
 string data
@@ -18,7 +18,7 @@ string data
 string[] flags
 
 # Convex Hull
-geometry_msgs/PointStamped[] convex_hull
+geometry_msgs/Point[] convex_hull
 float32 z_min
 float32 z_max
 
