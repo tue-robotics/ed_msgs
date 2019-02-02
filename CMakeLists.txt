@@ -5,12 +5,16 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   tue_serialization
   geometry_msgs
+  shape_msgs
+  std_msgs
 )
 
 # Generate messages in the 'msg' folder
 add_message_files(
   FILES
     EntityInfo.msg
+    SubVolume.msg
+    Volume.msg
 )
 
 # Generate services in the 'srv' folder
@@ -38,8 +42,15 @@ generate_messages(
   DEPENDENCIES
     tue_serialization
     geometry_msgs
+    shape_msgs
+    std_msgs
 )
 
 catkin_package(
-  CATKIN_DEPENDS tue_serialization geometry_msgs
+  CATKIN_DEPENDS
+  tue_serialization
+  geometry_msgs
+  shape_msgs
+  std_msgs
+  message_runtime
 )

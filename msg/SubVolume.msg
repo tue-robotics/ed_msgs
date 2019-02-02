@@ -1,0 +1,2 @@
+geometry_msgs/PointStamped center_point
+shape_msgs/SolidPrimitive geometry
