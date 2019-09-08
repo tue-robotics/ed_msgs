@@ -11,6 +11,8 @@ steps:
     script: |
       wget https://raw.githubusercontent.com/tue-robotics/tue-env/master/ci/install-package.sh
       wget https://raw.githubusercontent.com/tue-robotics/tue-env/master/ci/build-package.sh
+      echo PACKAGE
+      echo ${BUILD_REPOSITORY_NAME#*/}
       echo '##vso[task.setvariable variable=package]${BUILD_REPOSITORY_NAME#*/}'
   displayName: 'Get CI scripts'
 - task: Bash@3
