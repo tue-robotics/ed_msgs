@@ -1,0 +1,22 @@
+variables:
+  CI: true
+
+pool:
+  vmImage: 'ubuntu latest'
+
+steps:
+- script: |
+    wget https://raw.githubusercontent.com/tue-robotics/tue-env/master/ci/install-package.sh
+    wget https://raw.githubusercontent.com/tue-robotics/tue-env/master/ci/build-package.sh
+    export PACKAGE=${BUILD_REPOSITORYNAME#*/}
+  displayName: 'wget CI scripts'
+- task: Bash@3
+  inputs:
+    filePath: 'install-package.sh'
+    arguments: '--package=$PACKAGE --branch=${SYSTEM_PULLREQUEST_SOURCEBRANCH:-${SYSTEM_PULLREQUEST_TARGETBRANCH:-$BUILD_SOURCEBRANCH}} --commit=${BUILD_SOURCEVERSION:-$(git rev-parse HEAD^2)} --pullrequest=${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER:-false}'
+  displayName: 'install'
+- task: Bash@3
+  inputs:
+    filePath: 'build-package.sh'
+    arguments: '--package=$PACKAGE'
+  displayName: 'build & tests'
