@@ -1,6 +1,6 @@
 variables:
   CI: true
-  PACKAGE: ${BUILD_REPOSITORY_NAME#*/}
+  PACKAGE: $(BUILD_REPOSITORY_NAME#*/)
 
 pool:
   vmImage: 'ubuntu latest'
