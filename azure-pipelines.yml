@@ -17,6 +17,8 @@ steps:
       echo "$PACKAGE"
       echo "BUILD_REPOSITORYNAME"
       echo "$BUILD_REPOSITORYNAME"
+      echo "printenv"
+      printenv
   displayName: 'wget CI scripts'
 - task: Bash@3
   inputs:
