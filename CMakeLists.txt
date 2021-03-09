@@ -6,7 +6,6 @@ find_package(catkin REQUIRED COMPONENTS
   tue_serialization
   geometry_msgs
   shape_msgs
-  std_msgs
 )
 
 # Generate messages in the 'msg' folder
@@ -43,7 +42,6 @@ generate_messages(
     tue_serialization
     geometry_msgs
     shape_msgs
-    std_msgs
 )
 
 catkin_package(
@@ -51,6 +49,5 @@ catkin_package(
   tue_serialization
   geometry_msgs
   shape_msgs
-  std_msgs
   message_runtime
 )
