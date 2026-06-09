@@ -4,8 +4,8 @@ string[] types
 
 float32 existence_probability
 
-time last_update_time
-time creation_time
+builtin_interfaces/Time last_update_time
+builtin_interfaces/Time creation_time
 
 bool has_shape
 
