@@ -1,53 +1,58 @@
-cmake_minimum_required(VERSION 3.5)
-project(ed_msgs)
+cmake_minimum_required(VERSION 3.8)
+project(ed_interfaces)
 
-find_package(catkin REQUIRED COMPONENTS
-  message_generation
-  tue_serialization
-  geometry_msgs
-  shape_msgs
-)
+find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(shape_msgs REQUIRED)
+find_package(tue_serialization_interfaces REQUIRED)
 
-# Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-    EntityInfo.msg
-    SubVolume.msg
-    Volume.msg
-)
-
-# Generate services in the 'srv' folder
-add_service_files(
-  FILES
-    GetGUICommand.srv
-    GetMeasurements.srv
-    RaiseEvent.srv
-    SetClick.srv
-    SetLabel.srv
-    SimpleQuery.srv
-    LoadPlugin.srv
-
-    Query.srv
-    UpdateSrv.srv
-    Configure.srv
-    Reset.srv
-
-    # For builder plugin
-    SetEntity.srv
-)
-
-# Generate added messages and services with any dependencies listed here
-generate_messages(
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/EntityInfo.msg"
+  "msg/SubVolume.msg"
+  "msg/Volume.msg"
+  "srv/GetGUICommand.srv"
+  "srv/GetMeasurements.srv"
+  "srv/RaiseEvent.srv"
+  "srv/SetClick.srv"
+  "srv/SetLabel.srv"
+  "srv/SimpleQuery.srv"
+  "srv/LoadPlugin.srv"
+  "srv/Query.srv"
+  "srv/UpdateSrv.srv"
+  "srv/Configure.srv"
+  "srv/Reset.srv"
+  "srv/SetEntity.srv"
   DEPENDENCIES
-    tue_serialization
+    builtin_interfaces
     geometry_msgs
     shape_msgs
+    tue_serialization_interfaces
+  ADD_LINTER_TESTS
 )
 
-catkin_package(
-  CATKIN_DEPENDS
-  tue_serialization
-  geometry_msgs
-  shape_msgs
-  message_runtime
-)
+ament_export_dependencies(rosidl_default_runtime)
+
+if(BUILD_TESTING)
+  find_package(ament_cmake_lint_cmake REQUIRED)
+  find_package(ament_cmake_xmllint REQUIRED)
+  ament_lint_cmake(MAX_LINE_LENGTH 120 "--filter=
+    +convention/filename,
+    +linelength,
+    +package/consistency,
+    +package/stdargs,
+    +readability/logic,
+    +readability/mixedcase,
+    +readability/wonkycase,
+    +syntax,+whitespace/eol,
+    +whitespace/extra,
+    +whitespace/indent,
+    +whitespace/mismatch,
+    +whitespace/newline,
+    +whitespace/tabs"
+  )
+  ament_xmllint(MAX_LINE_LENGTH 120)
+endif()
+
+ament_package()
