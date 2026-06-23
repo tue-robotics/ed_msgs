@@ -1,4 +1,4 @@
 ---
 string[] ids
-tue_serialization/Binary[] images
+tue_serialization_interfaces/Binary[] images
 string msg
